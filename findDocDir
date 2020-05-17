@@ -1,0 +1,15 @@
+#!/bin/bash
+array=()
+while IFS=  read -r -d $'\0'; do
+    array+=("$REPLY")
+done < <(find /home/vince/dokumente -type d -ipath "*$1*$2*$3*" -print0)
+for i in "${!array[@]}"; do 
+  printf "%s\t%s\n" "$i" "${array[$i]}"
+done
+#printf '%s\n' "${array[@]}"
+echo "select index of dir to navigate to"
+read index
+dstDir="${array[$index]}"
+echo "you chose: $dstDir"
+cd "$dstDir"
+

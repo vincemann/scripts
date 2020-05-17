@@ -1,0 +1,13 @@
+#!/bin/sh
+read -p "p = packen, e = entpacken" packen
+if [ "$packen" = "p" ]
+	then
+	read -p "Bitte archivName angeben" archiv
+	tar cfvz $archiv $1
+elif [ "$packen" = "e" ]
+	then
+	tar -xzf $1
+else
+	echo du musst p oder e eingeben - beenden 
+fi
+

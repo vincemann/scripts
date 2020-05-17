@@ -1,0 +1,2 @@
+ls -1 --sort=time /usr/local/bin/
+cat /etc/bash.bashrc | grep alias

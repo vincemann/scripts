@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo find / -iname "*$1*$2*$3*"
