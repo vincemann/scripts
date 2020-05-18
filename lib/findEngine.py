@@ -12,10 +12,12 @@ def findAndSelect(words,file=True):
     #print("search string: %s" % search);
     searchProgram=None;
     if file is True:
+        print("searching for a file")
         searchProgram="findGlobal";
     else:
-        searchProgram="findDir";
-    p = subprocess.Popen("%s %s" % (searchProgram,search),shell=True, stdout=subprocess.PIPE)
+        print("searching for a dir")
+        searchProgram="find / -type d -ipath";
+    p = subprocess.Popen("%s \"%s\"" % (searchProgram,search),shell=True, stdout=subprocess.PIPE)
     out, err = p.communicate()
     #print("results:");
     #print(out);

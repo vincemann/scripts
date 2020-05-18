@@ -1,0 +1,10 @@
+#!/bin/sh
+# what:
+# creates a file and opens it in libreoffice
+# how:
+# createDoc filename
+# -> will create filename.odt and open
+# dependecies:
+# libreoffice
+touch "$1.odt"
+libreoffice "$1.odt"

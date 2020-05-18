@@ -1,2 +1,0 @@
-#!/bin/sh
-x11docker --desktop --hostnet --share /usr/lib/jvm/jdk1.8.0_241 -m -c -g -p --lang=de --size 800x600 local/idea
