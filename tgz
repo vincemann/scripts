@@ -1,4 +1,9 @@
 #!/bin/sh
+# was:
+# interaktiv packen oder entpacken von tar.gz archiven
+# wie
+# tgz
+# man wird interaktiv durch den prozess geführt, alles findet im aktuellen working dir statt
 read -p "p = packen, e = entpacken" packen
 if [ "$packen" = "p" ]
 	then

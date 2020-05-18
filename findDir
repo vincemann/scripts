@@ -1,15 +1,25 @@
-#!/usr/bin/python
-from lib import findEngine
-import subprocess
-import sys
+#!/bin/bash
+# what:
+# gloabally finds dirs, let user choose one and cd into
+# how:
+# findDir searchWords...
+# up to 3 searchWords must be contained in absolute file path in the given order,
+# but there may be other character before and after each search word
+# all matching dirs are presented with index and user can choose word by index.
+# if only one dir is found, it is opened without user questioning.
+# dependencies:
+# find
 
-amountArgs = len(sys.argv)-1;
-searchWords=[];
-for i in range(amountArgs):
-    searchWord =sys.argv[i+1]
-    print("search word: %s" % searchWord);
-    searchWords.append(searchWord);
-
-
-selected = findEngine.findAndSelect(searchWords,file=False);
-subprocess.Popen("cd \"%s\"" % selected,shell=True)
+array=()
+while IFS=  read -r -d $'\0'; do
+    array+=("$REPLY")
+done < <(find -L . -type d -iname "*$1*$2*$3*" -print0)
+for i in "${!array[@]}"; do 
+  printf "%s\t%s\n" "$i" "${array[$i]}"
+done
+#printf '%s\n' "${array[@]}"
+echo "select index of dir to navigate to"
+read index
+dstDir="${array[$index]}"
+echo "you chose: $dstDir"
+cd "$dstDir"

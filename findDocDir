@@ -1,8 +1,12 @@
+#!/usr/bin/python
+
+
 #!/bin/bash
+docDir=`printenv CPV_DOC_DIR`;
 array=()
 while IFS=  read -r -d $'\0'; do
     array+=("$REPLY")
-done < <(find /home/vince/dokumente -type d -ipath "*$1*$2*$3*" -print0)
+done < <(find "$docDir" -type d -ipath "*$1*$2*$3*" -print0)
 for i in "${!array[@]}"; do 
   printf "%s\t%s\n" "$i" "${array[$i]}"
 done

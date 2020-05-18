@@ -1,7 +1,0 @@
-#!/bin/sh
-off=$(amixer get Master | grep "\[off\]")
-if [ -z "$off" ];then
-	echo "Volume is on"
-else
-	echo "Volume is off"
-fi

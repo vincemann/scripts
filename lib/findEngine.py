@@ -2,9 +2,10 @@
 import subprocess
 from subprocess import check_output
 
+
 #give me search words and I find files/dirs that user can select from
 #if there is only one result, user is not questioned
-def findAndSelect(words,file=True):
+def findAndSelect(words,file=True,dir="/"):
     search="*";
     for word in words:
         search=search+word+"*";
@@ -13,11 +14,13 @@ def findAndSelect(words,file=True):
     searchProgram=None;
     if file is True:
         print("searching for a file")
-        searchProgram="findGlobal";
+        searchProgram="find %s -iname" % dir.rstrip();
     else:
         print("searching for a dir")
-        searchProgram="find / -type d -ipath";
-    p = subprocess.Popen("%s \"%s\"" % (searchProgram,search),shell=True, stdout=subprocess.PIPE)
+        searchProgram="find %s -type d -ipath" % dir.rstrip();
+    searchCommand="%s \"%s\"" % (searchProgram,search);
+    print("serach command %s" % searchCommand);
+    p = subprocess.Popen(searchCommand,shell=True, stdout=subprocess.PIPE)
     out, err = p.communicate()
     #print("results:");
     #print(out);

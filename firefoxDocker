@@ -1,2 +1,0 @@
-#!/bin/sh
-x11docker -c -m -- --tmpfs /dev/shm -- jess/firefox

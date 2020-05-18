@@ -1,7 +1,24 @@
 #!/usr/bin/python
+
+
+# what:
+# gloabally finds files, let user choose one and open in editor
+# how:
+# findAndEdit searchWords... [term]
+# searchWords must be contained in filename in the given order,
+# but there may be other character before and after each search word
+# if last arg is "term", than vim is used instead of gedit to open file
+# all matching files are presented with index and user can choose word by index.
+# if only one file is found, it is opened without user questioning.
+# dependencies:
+# lib/findEngine.py
+# vim, gedit
+
 import sys
 import subprocess
 from lib import findEngine
+
+
 
 #terminal edit or normal edit?
 terminalEdit=False;
