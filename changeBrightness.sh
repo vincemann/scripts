@@ -15,7 +15,7 @@ addend=$1
 
 #screen=$()
 screen=`printenv CPV_SCREEN`
-if [ -z "$screen"]
+if [ -z "$screen" ]
 then
     screens=`xrandr | grep " connected" | cut -f1 -d " "`
     screen=${screens%$'\n'*}
