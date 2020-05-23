@@ -1,0 +1,28 @@
+# VINCEMANN SCRIPT CONFIG - ADDED BY https://github.com/vincemann/scripts INSTALLATION SCRIPT
+# Possible Env Vars with examples:
+# Document dir for *doc scripts, use abs path to avoid problems
+# export CPV_DOC_DIR=/home/vince/documents
+
+
+# Aliases
+# needs to be done so aliases also work with sudo
+alias sudo='sudo '
+alias s='sudo '
+# text editor struggle
+alias e='sudo gedit'
+# make eXecuteable
+alias x='sudo chmod +x'
+alias ?='helpCommands'
+# create
+alias c='gedit'
+alias explorer='startExplorer &'
+# find aliases
+alias fdp='source findProjectDir'
+alias fd='source findDir'
+alias fdoc='findDoc'
+alias fdocd='source findDocDir'
+alias f='findGlobal'
+alias fed='sudo $(whereis findAndEdit | cut -d " " -f2-)'
+
+
+# END VINCEMANN SCRIPTS CONFIG
