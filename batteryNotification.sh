@@ -2,6 +2,8 @@
 
 # what:
 # Sends notification to desktop user, if the battery is low and it's not charging.
+# Suggested application: cronjob
+# * * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) batteryNotification.sh
 # how:
 # Extracts information from command 'acpi'
 # Checks status of battery by comparing it to given values.
