@@ -1,0 +1,18 @@
+#!/bin/bash
+for pid in `ps -ef | awk '{print $2}'` ; do 
+	# skip row description
+	if [ "$pid" == "PID" ]
+	then
+		continue;
+	fi
+	activity=`lsof -i -a -p $pid`
+	# display process information and network activity, if there is any
+	if [ -n "$activity" ]
+	then
+		psName=`ps -p $pid -o comm=`
+		printf 'Process: %s %s  has current network activity: \n' "$pid", "$psName"
+		printf '%s\n' "$activity"
+		printf ' \n'
+		printf ' \n'
+	fi
+done
