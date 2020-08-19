@@ -5,7 +5,7 @@ for pid in `ps -ef | awk '{print $2}'` ; do
 	then
 		continue;
 	fi
-	activity=`lsof -i -a -p $pid`
+	activity=`sudo lsof -i -a -p $pid`
 	# display process information and network activity, if there is any
 	if [ -n "$activity" ]
 	then

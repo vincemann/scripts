@@ -1,2 +1,0 @@
-#!/bin/sh
-copyq copy `sudo cat "$1"`
