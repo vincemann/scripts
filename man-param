@@ -1,0 +1,4 @@
+#!/bin/bash
+# used to search for a specfic parameter in man page
+# example 'man-param grep A' would display the paragraph(s) about -A or --A in the man page of grep
+man "$1" | grep -i -A 8 -n "\-$2\ "
